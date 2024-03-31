@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/OlexandrYaremchuk/chat-01/static/css/main.aaba01a1.css",
-    "main.js": "/OlexandrYaremchuk/chat-01/static/js/main.8aa624fc.js",
-    "index.html": "/OlexandrYaremchuk/chat-01/index.html",
-    "main.aaba01a1.css.map": "/OlexandrYaremchuk/chat-01/static/css/main.aaba01a1.css.map",
-    "main.8aa624fc.js.map": "/OlexandrYaremchuk/chat-01/static/js/main.8aa624fc.js.map"
+    "main.css": "/chat-01/static/css/main.aaba01a1.css",
+    "main.js": "/chat-01/static/js/main.783531f9.js",
+    "index.html": "/chat-01/index.html",
+    "main.aaba01a1.css.map": "/chat-01/static/css/main.aaba01a1.css.map",
+    "main.783531f9.js.map": "/chat-01/static/js/main.783531f9.js.map"
   },
   "entrypoints": [
     "static/css/main.aaba01a1.css",
-    "static/js/main.8aa624fc.js"
+    "static/js/main.783531f9.js"
   ]
 }
