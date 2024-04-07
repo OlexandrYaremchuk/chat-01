@@ -1,9 +1,8 @@
 import { createContext, useContext } from "react";
-import firebase from 'firebase/compat/app'
-import 'firebase/compat/auth'
-import 'firebase/compat/firestore'
-
-
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
+import { useCollectionData } from "react-firebase-hooks/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAt2UffPiHXDh5wlpgUVUB5KBz7c_7AC-4",
@@ -11,21 +10,28 @@ const firebaseConfig = {
   projectId: "perfectchat-89ccb",
   storageBucket: "perfectchat-89ccb.appspot.com",
   messagingSenderId: "310569895534",
-  appId: "1:310569895534:web:4c89a85dc882f15ae3487f"
+  appId: "1:310569895534:web:4c89a85dc882f15ae3487f",
 };
 
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth()
-const firestore = firebase.firestore()
+const auth = firebase.auth();
+const firestore = firebase.firestore();
 
+const AppContext = createContext();
 
-const AppContext = createContext()
+export const useAppContext = () => {
+  return useContext(AppContext);
+};
 
-export const useAppContext = ()=>{
-    return useContext(AppContext)
-}
+export const AppProvider = ({ children }) => {
+  const [users] = useCollectionData(
+    firestore.collection("users").orderBy("uid")
+  );
 
-export const AppProvider = ({children}) =>{
-    return (<AppContext.Provider value={{firebase, auth, firestore}}>{children}</AppContext.Provider>)
-}
+  return (
+    <AppContext.Provider value={{ firebase, auth, firestore, users }}>
+      {children}
+    </AppContext.Provider>
+  );
+};
